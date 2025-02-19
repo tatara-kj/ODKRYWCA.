@@ -24,5 +24,29 @@ namespace odkrywca1
         {
             InitializeComponent();
         }
+
+        private void powrot(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+
+        }
+
+        private void powrot_kontynent(object sender, RoutedEventArgs e)
+        {
+            kontynent.Visibility = Visibility.Visible;
+            powrot_grid.Visibility = Visibility.Visible;
+
+            quiz.Visibility = Visibility.Collapsed;
+        }
+
+        private void quiz_click(object sender, RoutedEventArgs e)
+        {
+            powrot_grid.Visibility=Visibility.Collapsed;
+            kontynent.Visibility=Visibility.Collapsed;
+
+            quiz.Visibility=Visibility.Visible;
+        }
+
+       
     }
 }
