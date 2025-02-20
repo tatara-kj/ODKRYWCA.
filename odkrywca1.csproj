@@ -9,12 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="asia1.jpg" />
+    <None Remove="asia2.jpg" />
+    <None Remove="asia3.jpg" />
+    <None Remove="asia4.jpg" />
     <None Remove="europa.jpg" />
     <None Remove="europa2.jpg" />
     <None Remove="zdjecia\europa.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="asia1.jpg" />
+    <Resource Include="asia2.jpg" />
+    <Resource Include="asia3.jpg" />
+    <Resource Include="asia4.jpg" />
     <Resource Include="europa.jpg" />
     <Resource Include="europa2.jpg" />
     <Resource Include="zdjecia\europa.jpg" />

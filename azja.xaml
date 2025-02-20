@@ -1,6 +1,4 @@
-﻿
-    
-    <Page x:Class="odkrywca1.azja"
+﻿<Page x:Class="odkrywca1.azja"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,10 +8,10 @@
       d:DesignHeight="1305" d:DesignWidth="1845"
  Title="Azja" Background="#FEF8E0">
     <Page.Resources>
-       
+
         <Style TargetType="RadioButton">
             <Setter Property="FontSize" Value="30"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
@@ -41,10 +39,10 @@
         <Grid x:Name="kontynent" Visibility="Visible">
             <Label Content="AZJA" FontSize="120" FontFamily="Calibri" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="184" Width="352" HorizontalContentAlignment="Center"/>
 
-            <ScrollViewer Visibility="Visible" BorderBrush="SpringGreen" BorderThickness="5"  Height="924" Width="1900" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="4,260,41,40">
-
-                <StackPanel Height="2000" >
-                    <TextBlock TextWrapping="Wrap" FontSize="40" Padding="10" Height="2001"  HorizontalAlignment="Center" TextAlignment="Center">
+            <ScrollViewer Visibility="Visible" BorderBrush="SpringGreen" BorderThickness="5" Width="1900" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="-32,223,-33,10">
+                <Grid>
+                    <StackPanel Height="2949" >
+                        <TextBlock TextWrapping="Wrap" FontSize="40" Padding="10" Height="1959"  HorizontalAlignment="Center" TextAlignment="Center">
 <Run FontSize="36" FontWeight="Bold">Azja – Kontynent Pełen Kontrastów</Run>
 <LineBreak/><LineBreak/>
         Azja to największy i najbardziej zróżnicowany kontynent na Ziemi. Obejmuje ponad 44 miliony km², co stanowi około 30% powierzchni lądowej świata.
@@ -96,10 +94,24 @@
 <LineBreak/><LineBreak/>
  
         Azja to kontynent kontrastów – od nowoczesnych metropolii jak Tokio i Dubaj, po dzikie tereny Syberii i dżungle Borneo. To miejsce, gdzie historia i przyszłość łączą się w fascynującą całość. 🌿🌏
-                    </TextBlock>
+                        </TextBlock>
 
 
-                </StackPanel>
+                    </StackPanel>
+                    <Image Source="/asia1.jpg" Margin="877,2085,368,611"/>
+                    <Image Source="/asia2.jpg" Margin="378,2120,1147,697"/>
+                    <Image Source="/asia3.jpg" Margin="162,2479,1212,331"/>
+                    <Image Source="/asia4.jpg" Margin="1015,2643,359,171" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.76"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Grid>
 
             </ScrollViewer>
 
@@ -109,57 +121,60 @@
         <Grid Visibility="Visible" x:Name="powrot_grid">
             <Button Content="POWRÓT" FontSize="40" HorizontalAlignment="Left" Margin="68,61,0,0" VerticalAlignment="Top" Height="80" Width="205" Click="powrot"/>
             <Button Content="Quiz" FontSize="40" HorizontalAlignment="Left" Margin="1532,61,0,0" VerticalAlignment="Top" Height="80" Width="205" Click="quiz_click"/>
+
         </Grid>
         <Grid x:Name="quiz" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Height="1291" Width="1815" >
             <ScrollViewer Visibility="Visible" BorderBrush="SpringGreen" BorderThickness="5"  Height="924" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="55,270,55,97">
 
-                <StackPanel Height="1800" Width="1649" >
-
+                <StackPanel Height="2021" Width="1648" >
                     <GroupBox Header="Pytanie 1: Jaka jest najwyższa góra Azji?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
-                        <StackPanel RenderTransformOrigin="0.5,0.5">
-                            <RadioButton Content="Mount Everest" GroupName="question1" Margin="10"/>
-                            <RadioButton Content="K2" GroupName="question1" Margin="10"/>
-                            <RadioButton Content="Kangchenjunga" GroupName="question1" Margin="10"/>
-                            <RadioButton Content="Makalu" GroupName="question1" Margin="10"/>
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt1">
+                            <RadioButton Content="Mount Everest" GroupName="question1" Margin="10" Tag="1"/>
+                            <RadioButton Content="K2" GroupName="question1" Margin="10" Tag="2"/>
+                            <RadioButton Content="Kangchenjunga" GroupName="question1" Margin="10" Tag="3"/>
+                            <RadioButton Content="Makalu" GroupName="question1" Margin="10" Tag="4"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Pytanie 2: Które jezioro w Azji jest najgłębsze?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
-                        <StackPanel RenderTransformOrigin="0.5,0.5">
-                            <RadioButton Content="Bajkał" GroupName="question2" Margin="10"/>
-                            <RadioButton Content="Morze Kaspijskie" GroupName="question2" Margin="10"/>
-                            <RadioButton Content="Jezioro Wiktorii" GroupName="question2" Margin="10"/>
-                            <RadioButton Content="Jezioro Aralskie" GroupName="question2" Margin="10"/>
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt2">
+                            <RadioButton Content="Bajkał" GroupName="question2" Margin="10" Tag="2"/>
+                            <RadioButton Content="Morze Kaspijskie" GroupName="question2" Margin="10" Tag="3"/>
+                            <RadioButton Content="Jezioro Wiktorii" GroupName="question2" Margin="10" Tag="5"/>
+                            <RadioButton Content="Jezioro Aralskie" GroupName="question2" Margin="10" Tag="1"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Pytanie 3: Jaka pustynia jest największa w Azji?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
-                        <StackPanel RenderTransformOrigin="0.5,0.5">
-                            <RadioButton Content="Gobi" GroupName="question3" Margin="10"/>
-                            <RadioButton Content="Sahara" GroupName="question3" Margin="10"/>
-                            <RadioButton Content="Kalahari" GroupName="question3" Margin="10"/>
-                            <RadioButton Content="Atakama" GroupName="question3" Margin="10"/>
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt3">
+                            <RadioButton Content="Gobi" GroupName="question3" Margin="10" Tag="1"/>
+                            <RadioButton Content="Sahara" GroupName="question3" Margin="10" Tag="2"/>
+                            <RadioButton Content="Kalahari" GroupName="question3" Margin="10" Tag="3"/>
+                            <RadioButton Content="Atakama" GroupName="question3" Margin="10" Tag="4"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Pytanie 4: Jaki kraj jest największym archipelagiem Azji?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
-                        <StackPanel RenderTransformOrigin="0.5,0.5">
-                            <RadioButton Content="Indonezja" GroupName="question4" Margin="10"/>
-                            <RadioButton Content="Filipiny" GroupName="question4" Margin="10"/>
-                            <RadioButton Content="Japonia" GroupName="question4" Margin="10"/>
-                            <RadioButton Content="Malediwy" GroupName="question4" Margin="10"/>
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt4">
+                            <RadioButton Content="Indonezja" GroupName="question4" Margin="10" Tag="1"/>
+                            <RadioButton Content="Filipiny" GroupName="question4" Margin="10" Tag="2"/>
+                            <RadioButton Content="Japonia" GroupName="question4" Margin="10" Tag="3"/>
+                            <RadioButton Content="Malediwy" GroupName="question4" Margin="10" Tag="4"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Pytanie 5: W którym kraju znajduje się Wielki Mur Chiński?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
-                        <StackPanel RenderTransformOrigin="0.5,0.5">
-                            <RadioButton Content="Chiny" GroupName="question5" Margin="10"/>
-                            <RadioButton Content="Japonia" GroupName="question5" Margin="10"/>
-                            <RadioButton Content="Korea Południowa" GroupName="question5" Margin="10"/>
-                            <RadioButton Content="Indie" GroupName="question5" Margin="10"/>
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt5">
+                            <RadioButton Content="Chiny" GroupName="question5" Margin="10" Tag="1"/>
+                            <RadioButton Content="Japonia" GroupName="question5" Margin="10" Tag="2"/>
+                            <RadioButton Content="Korea Południowa" GroupName="question5" Margin="10" Tag="3"/>
+                            <RadioButton Content="Indie" GroupName="question5" Margin="10" Tag="4"/>
                         </StackPanel>
                     </GroupBox>
-                    <Button Content="POWROT" FontSize="50" HorizontalAlignment="Left" Margin="55,56,0,0" VerticalAlignment="Top" Height="131" Width="253" Click="powrot_kontynent"/>
+
+                    <Label x:Name="wynik" FontSize="40" Height="82" Width="245" Margin="40" Content="wynik:" HorizontalAlignment="Center"/>
+                    <Button Content="SPRAWDŻ" FontSize="50" HorizontalAlignment="Center"   Height="131" Width="253" Click="sprawdz"/>
+
                 </StackPanel>
             </ScrollViewer>
             <Button Content="POWROT" FontSize="50" HorizontalAlignment="Left" Margin="55,56,0,0" VerticalAlignment="Top" Height="131" Width="253" Click="powrot_kontynent"/>

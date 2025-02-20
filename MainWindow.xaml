@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:odkrywca1"
         mc:Ignorable="d"
+           WindowState="Maximized"
         Title="Odkrywca" Height="1305" Width="1845" Background="#FEF8E0">
 
     <Viewbox>
