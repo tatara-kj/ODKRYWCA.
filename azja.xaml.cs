@@ -28,7 +28,7 @@ namespace odkrywca1
         {
             InitializeComponent();
 
-
+//testkupa
             // Możesz także ustawić dźwięk do odtwarzania w tle
 
         }
