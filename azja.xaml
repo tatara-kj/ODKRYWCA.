@@ -134,39 +134,39 @@
             <!-- Tło całego scrollbar -->
             <Setter Property="Background" Value="#EEF7FF"/>
             <!-- Jasny błękit -->
-      
+
             <!-- Styl dla uchwytu (thumb) -->
             <Setter Property="Thumb.Background" Value="#7AB2B2"/>
             <!-- Średni turkusowy -->
             <Setter Property="Thumb.BorderBrush" Value="#4D869C"/>
             <!-- Chłodny szary-niebieski -->
             <Setter Property="Thumb.BorderThickness" Value="2"/>
-           
-       
+
+
             <!-- Styl dla uchwytu podczas najechania -->
             <Setter Property="Thumb.Background" Value="#4D869C"/>
             <!-- Chłodny szary-niebieski -->
             <Setter Property="Thumb.BorderBrush" Value="#7AB2B2"/>
             <!-- Średni turkusowy -->
             <Setter Property="Thumb.BorderThickness" Value="2"/>
-        
-     
+
+
             <!-- Styl dla przycisków przesuwania scrollbara -->
             <Setter Property="Button.Background" Value="#CDE8E5"/>
             <!-- Jasny turkusowy -->
             <Setter Property="Button.BorderBrush" Value="#7AB2B2"/>
             <!-- Średni turkusowy -->
             <Setter Property="Button.BorderThickness" Value="1"/>
-            
+
             <Setter Property="Button.Foreground" Value="#4D869C"/>
             <!-- Chłodny szary-niebieski -->
-       
+
             <Setter Property="Button.Background" Value="#7AB2B2"/>
             <!-- Średni turkusowy -->
             <Setter Property="Button.BorderBrush" Value="#CDE8E5"/>
             <!-- Jasny turkusowy -->
             <Setter Property="Button.BorderThickness" Value="1"/>
-            
+
             <Setter Property="Button.Foreground" Value="#FFFFFF"/>
             <!-- Biały tekst -->
         </Style>
@@ -263,7 +263,8 @@
                     </GroupBox>
 
                     <Label x:Name="wynik" FontSize="40" Height="82" Width="245" Margin="40" Content="wynik:" HorizontalAlignment="Center"/>
-                    <Button Content="SPRAWDŻ" FontSize="50" HorizontalAlignment="Center"   Height="131" Width="253" Click="sprawdz"/>
+                    <Button x:Name="sprawdzz" Content="SPRAWDŻ" FontSize="50" HorizontalAlignment="Center"   Height="131" Width="253" Click="sprawdz"/>
+                    <Button x:Name="resett" Visibility="Collapsed" Content="RESET" FontSize="50" HorizontalAlignment="Center"   Height="95" Width="308" Click="reset"/>
 
                 </StackPanel>
             </ScrollViewer>
