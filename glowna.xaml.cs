@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,14 +22,25 @@ namespace odkrywca1
     /// </summary>
     public partial class glowna : Page
     {
+   
         public glowna()
         {
             InitializeComponent();
+            string clickSoundPath = @"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3";
+
+            // Ustaw ścieżkę do dźwięku kliknięcia
+            clickSound.Source = new Uri(clickSoundPath, UriKind.Absolute);
+
+            // Inne ustawienia, jeśli potrzeba
+            clickSound.LoadedBehavior = MediaState.Manual; // Zapewni manualne kontrolowanie
+            clickSound.UnloadedBehavior = MediaState.Manual;
+
+            // Możesz także ustawić dźwięk do odtwarzania w tle
         }
         private void asia_click(object sender, RoutedEventArgs e)
         {
 
-
+            
             NavigationService.Navigate(new azja());
 
 
@@ -37,36 +49,38 @@ namespace odkrywca1
 
         private void afryka_click(object sender, RoutedEventArgs e)
         {
-
+            clickSound.Play();
             MessageBox.Show("afryka");
         }
 
         private void australia_click(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
 
             MessageBox.Show("australia");
         }
 
         private void europa_click(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
 
             MessageBox.Show("europa");
         }
 
         private void bliskiws_click(object sender, RoutedEventArgs e)
         {
-
+            clickSound.Play();
             MessageBox.Show("bliski wschod");
         }
 
         private void amerykas_click(object sender, RoutedEventArgs e)
         {
-
+            clickSound.Play();
             MessageBox.Show("ameryka poln ocna");
         }
         private void amerykan_click(object sender, RoutedEventArgs e)
         {
-
+            clickSound.Play();
             MessageBox.Show("amryka poludniowa");
         }
 

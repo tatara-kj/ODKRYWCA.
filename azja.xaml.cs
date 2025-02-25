@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,19 +21,32 @@ namespace odkrywca1
     /// </summary>
     public partial class azja : Page
     {
+      
         public azja()
         {
             InitializeComponent();
+            string clickSoundPath = @"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3";
+
+            // Ustaw ścieżkę do dźwięku kliknięcia
+            clickSound.Source = new Uri(clickSoundPath, UriKind.Absolute);
+
+            // Inne ustawienia, jeśli potrzeba
+            clickSound.LoadedBehavior = MediaState.Manual; // Zapewni manualne kontrolowanie
+            clickSound.UnloadedBehavior = MediaState.Manual;
+
+            // Możesz także ustawić dźwięk do odtwarzania w tle
+
         }
 
         private void powrot(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
-
+            clickSound.Play();
         }
 
         private void powrot_kontynent(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
             kontynent.Visibility = Visibility.Visible;
             powrot_grid.Visibility = Visibility.Visible;
 
@@ -41,6 +55,7 @@ namespace odkrywca1
 
         private void quiz_click(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
             powrot_grid.Visibility = Visibility.Collapsed;
             kontynent.Visibility = Visibility.Collapsed;
 
@@ -49,6 +64,7 @@ namespace odkrywca1
 
         private void sprawdz(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
             int licznik = 0;
             string[] poprawneOdpowiedzi = { "1", "2", "1", "1", "1" };
             StackPanel[] pytania = { pyt1, pyt2, pyt3, pyt4, pyt5 };
