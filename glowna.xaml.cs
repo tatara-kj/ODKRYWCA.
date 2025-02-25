@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -37,10 +37,14 @@ namespace odkrywca1
 
             // Możesz także ustawić dźwięk do odtwarzania w tle
         }
+        private MediaPlayer player = new MediaPlayer();
         private void asia_click(object sender, RoutedEventArgs e)
         {
 
-            
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
             NavigationService.Navigate(new azja());
 
 
@@ -49,12 +53,20 @@ namespace odkrywca1
 
         private void afryka_click(object sender, RoutedEventArgs e)
         {
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
             clickSound.Play();
             MessageBox.Show("afryka");
         }
 
         private void australia_click(object sender, RoutedEventArgs e)
         {
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
             clickSound.Play();
 
             MessageBox.Show("australia");
@@ -62,24 +74,40 @@ namespace odkrywca1
 
         private void europa_click(object sender, RoutedEventArgs e)
         {
-            clickSound.Play();
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
+           
 
             MessageBox.Show("europa");
         }
 
         private void bliskiws_click(object sender, RoutedEventArgs e)
         {
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
             clickSound.Play();
             MessageBox.Show("bliski wschod");
         }
 
         private void amerykas_click(object sender, RoutedEventArgs e)
         {
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
             clickSound.Play();
             MessageBox.Show("ameryka poln ocna");
         }
         private void amerykan_click(object sender, RoutedEventArgs e)
         {
+            player.Stop();
+            player.Volume = 0.5 * 0.8;
+            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Play();
             clickSound.Play();
             MessageBox.Show("amryka poludniowa");
         }
@@ -87,28 +115,32 @@ namespace odkrywca1
 
         private void wejscie(object sender, MouseEventArgs e)
         {
-            Button button = sender as Button;
-            Path path = button.Template.FindName("myPath", button) as Path;
+            Path ksztalt = sender as Path;
 
-            if (path != null)
+            if (ksztalt != null)
             {
-                if (e.RoutedEvent.Name == "MouseEnter")
-                {
-                    path.Stroke = Brushes.YellowGreen;
-                    path.Effect = new DropShadowEffect
-                    {
-                        Color = Colors.YellowGreen,
-                        BlurRadius = 20,
-                        ShadowDepth = 0,
-                        Opacity = 0.9
-                    };
-                }
-                else if (e.RoutedEvent.Name == "MouseLeave")
-                {
-                    path.Stroke = null;
-                    path.Effect = null;
-                }
+                ksztalt.Stroke = Brushes.YellowGreen;
+
+                DropShadowEffect cien = new DropShadowEffect();
+                cien.Color = Colors.YellowGreen;
+                cien.BlurRadius = 20;
+                cien.ShadowDepth = 0;
+                cien.Opacity = 0.9;
+
+                ksztalt.Effect = cien;
             }
         }
+
+        private void wyjscie(object sender, MouseEventArgs e)
+        {
+            Path ksztalt = sender as Path;
+
+            if (ksztalt != null)
+            {
+                ksztalt.Stroke = null;
+                ksztalt.Effect = null;
+            }
+        }
+
     }
 }
