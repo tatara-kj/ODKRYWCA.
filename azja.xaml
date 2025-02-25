@@ -6,17 +6,19 @@
       xmlns:local="clr-namespace:odkrywca1"
       mc:Ignorable="d" 
       d:DesignHeight="1305" d:DesignWidth="1845"
- Title="Azja" Background="#AED6F1">
+ Title="Azja" Background="#CDE8E5">
     <Page.Resources>
 
         <!-- Ogólne tło aplikacji -->
         <Style TargetType="Page">
-            <Setter Property="Background" Value="#AED6F1"/>
+            <Setter Property="Background" Value="#CDE8E5"/>
+            <!-- Jasny turkusowy -->
         </Style>
 
         <!-- Styl dla sekcji/kart -->
         <Style TargetType="Border">
-            <Setter Property="Background" Value="#AED6F1"/>
+            <Setter Property="Background" Value="#EEF7FF"/>
+            <!-- Jasny błękit -->
             <Setter Property="CornerRadius" Value="20"/>
             <Setter Property="Padding" Value="20"/>
             <Setter Property="Margin" Value="20"/>
@@ -31,7 +33,8 @@
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="48"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="#2E86C1"/>
+            <Setter Property="Foreground" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
@@ -40,13 +43,15 @@
             <Setter Property="FontSize" Value="32"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="TextAlignment" Value="Justify"/>
-            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="Foreground" Value="#3a5f6e"/>
+            <!-- Chłodny szary-niebieski -->
         </Style>
 
         <!-- Styl dla RadioButton -->
         <Style TargetType="RadioButton">
             <Setter Property="FontSize" Value="30"/>
-            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="Foreground" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -64,10 +69,11 @@
                         </StackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Bullet" Property="Fill" Value="#2E86C1"/>
+                                <Setter TargetName="Bullet" Property="Fill" Value="#7AB2B2"/>
+                                <!-- Średni turkusowy -->
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Bullet" Property="Fill" Value="#F1C40F"/>
+                                <Setter TargetName="Bullet" Property="Fill" Value="#6fc3e3"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -78,7 +84,8 @@
         <!-- Styl dla przycisków (główne akcje) -->
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="30"/>
-            <Setter Property="Background" Value="#2E86C1"/>
+            <Setter Property="Background" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="15"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -97,7 +104,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#F1C40F"/>
+                                <Setter Property="Background" Value="#6fc3e3"/>
                                 <!-- Żółty hover -->
                                 <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
@@ -120,12 +127,56 @@
             <Setter Property="Padding" Value="10"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10"/>
-            
+        </Style>
+
+        <!-- Styl dla Scrollbara -->
+        <Style TargetType="ScrollBar">
+            <!-- Tło całego scrollbar -->
+            <Setter Property="Background" Value="#EEF7FF"/>
+            <!-- Jasny błękit -->
+
+            <!-- Styl dla uchwytu (thumb) -->
+            <Setter Property="Thumb.Background" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Thumb.BorderBrush" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+            <Setter Property="Thumb.BorderThickness" Value="2"/>
+
+
+            <!-- Styl dla uchwytu podczas najechania -->
+            <Setter Property="Thumb.Background" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+            <Setter Property="Thumb.BorderBrush" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Thumb.BorderThickness" Value="2"/>
+
+
+            <!-- Styl dla przycisków przesuwania scrollbara -->
+            <Setter Property="Button.Background" Value="#CDE8E5"/>
+            <!-- Jasny turkusowy -->
+            <Setter Property="Button.BorderBrush" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Button.BorderThickness" Value="1"/>
+
+            <Setter Property="Button.Foreground" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+
+            <Setter Property="Button.Background" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Button.BorderBrush" Value="#CDE8E5"/>
+            <!-- Jasny turkusowy -->
+            <Setter Property="Button.BorderThickness" Value="1"/>
+
+            <Setter Property="Button.Foreground" Value="#FFFFFF"/>
+            <!-- Biały tekst -->
         </Style>
 
     </Page.Resources>
 
+
+
     <Grid Margin="0,0,10,0">
+        <MediaElement x:Name="clickSound" Visibility="Collapsed" LoadedBehavior="Manual" UnloadedBehavior="Manual" />
         <Grid x:Name="kontynent" Visibility="Visible">
             <Label Content="AZJA" FontSize="120" FontFamily="Calibri" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="184" Width="352" HorizontalContentAlignment="Center"/>
 
@@ -212,7 +263,8 @@
                     </GroupBox>
 
                     <Label x:Name="wynik" FontSize="40" Height="82" Width="245" Margin="40" Content="wynik:" HorizontalAlignment="Center"/>
-                    <Button Content="SPRAWDŻ" FontSize="50" HorizontalAlignment="Center"   Height="131" Width="253" Click="sprawdz"/>
+                    <Button x:Name="sprawdzz" Content="SPRAWDŻ" FontSize="50" HorizontalAlignment="Center"   Height="131" Width="253" Click="sprawdz"/>
+                    <Button x:Name="resett" Visibility="Collapsed" Content="RESET" FontSize="50" HorizontalAlignment="Center"   Height="95" Width="308" Click="reset"/>
 
                 </StackPanel>
             </ScrollViewer>

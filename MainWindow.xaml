@@ -126,8 +126,16 @@
     </Window.Resources>
 
     <Viewbox>
+        
         <Grid>
-            <Frame x:Name="GlownaStrona" NavigationUIVisibility="Hidden"  Background="Transparent" Margin="0,0,0,10"/>
+            <MediaElement Name="backgroundMusic" 
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch" 
+                      Visibility="Collapsed"
+                      LoadedBehavior="Manual"
+                      UnloadedBehavior="Manual"/>
+            
+            <Frame  x:Name="GlownaStrona" NavigationUIVisibility="Hidden"  Background="Transparent" Margin="0,0,0,10"/>
            
         </Grid>
     </Viewbox>
