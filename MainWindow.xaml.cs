@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -27,13 +27,13 @@ namespace odkrywca1
             InitializeComponent();
 
             // Ustaw ścieżkę do pliku audio
-            backgroundMusic.Source = new Uri("C:\\Users\\jtataruch1\\Source\\Repos\\ODKRYWCA\\zdjecia\\A New Adventure  D&DTTRPG Adventure Music  1 Hour (1).mp3", UriKind.RelativeOrAbsolute);
+            // Ustaw ścieżkę do pliku audio
+            backgroundMusic.Source = new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\A New Adventure  D&DTTRPG Adventure Music  1 Hour (1).mp3", UriKind.RelativeOrAbsolute);
 
-            // Ustaw parametry odtwarzania
-            backgroundMusic.Volume = 0.5;  // Głośność od 0 do 1
-       // Powtarzaj dźwięk w pętli
+            // Ustaw początkową głośność i ścisz o 25%
+            backgroundMusic.Volume = 0.5 * 0.5;  // 25% ciszej = 0.375
 
-            // Rozpocznij odtwarzanie dźwięku
+            // Rozpocznij odtwarzanie
             backgroundMusic.Play();
 
         }
