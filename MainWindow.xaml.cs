@@ -28,7 +28,7 @@ namespace odkrywca1
 
             // Ustaw ścieżkę do pliku audio
             // Ustaw ścieżkę do pliku audio
-            backgroundMusic.Source = new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\A New Adventure  D&DTTRPG Adventure Music  1 Hour (1).mp3", UriKind.RelativeOrAbsolute);
+            backgroundMusic.Source = new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\A New Adventure  D&DTTRPG Adventure Music  1 Hour (1).mp3", UriKind.RelativeOrAbsolute);
 
             // Ustaw początkową głośność i ścisz o 25%
             backgroundMusic.Volume = 0.5 * 0.5;  // 25% ciszej = 0.375

@@ -15,7 +15,34 @@
     <None Remove="asia4.jpg" />
     <None Remove="europa.jpg" />
     <None Remove="europa2.jpg" />
-    <None Remove="zdjecia\europa.jpg" />
+    <None Remove="kontynenty\africa1.jpg" />
+    <None Remove="kontynenty\africa2.jpg" />
+    <None Remove="kontynenty\africa3.jpg" />
+    <None Remove="kontynenty\africa4.jpg" />
+    <None Remove="kontynenty\asia2.jpg" />
+    <None Remove="kontynenty\europe1.jpg" />
+    <None Remove="kontynenty\europe2.jpg" />
+    <None Remove="kontynenty\europe3.jpg" />
+    <None Remove="kontynenty\zdjecia\A New Adventure  D&amp;DTTRPG Adventure Music  1 Hour %281%29.mp3" />
+    <None Remove="kontynenty\zdjecia\africa1.jpg" />
+    <None Remove="kontynenty\zdjecia\africa2.jpg" />
+    <None Remove="kontynenty\zdjecia\africa3.jpg" />
+    <None Remove="kontynenty\zdjecia\africa4.jpg" />
+    <None Remove="kontynenty\zdjecia\europa.jpg" />
+    <None Remove="kontynenty\zdjecia\mixkit-modern-click-box-check-1120.wav" />
+    <None Remove="kontynenty\zdjecia\old-radio-button-click-97549.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="kontynenty\zdjecia\A New Adventure  D&amp;DTTRPG Adventure Music  1 Hour (1).mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kontynenty\zdjecia\mixkit-modern-click-box-check-1120.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kontynenty\zdjecia\old-radio-button-click-97549.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +52,19 @@
     <Resource Include="asia4.jpg" />
     <Resource Include="europa.jpg" />
     <Resource Include="europa2.jpg" />
-    <Resource Include="zdjecia\europa.jpg" />
+    <Resource Include="kontynenty\africa1.jpg" />
+    <Resource Include="kontynenty\africa2.jpg" />
+    <Resource Include="kontynenty\africa3.jpg" />
+    <Resource Include="kontynenty\africa4.jpg" />
+    <Resource Include="kontynenty\asia2.jpg" />
+    <Resource Include="kontynenty\europe1.jpg" />
+    <Resource Include="kontynenty\europe2.jpg" />
+    <Resource Include="kontynenty\europe3.jpg" />
+    <Resource Include="kontynenty\zdjecia\africa1.jpg" />
+    <Resource Include="kontynenty\zdjecia\africa2.jpg" />
+    <Resource Include="kontynenty\zdjecia\africa3.jpg" />
+    <Resource Include="kontynenty\zdjecia\africa4.jpg" />
+    <Resource Include="kontynenty\zdjecia\europa.jpg" />
   </ItemGroup>
 
 </Project>

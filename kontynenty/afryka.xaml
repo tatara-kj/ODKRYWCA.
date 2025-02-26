@@ -1,0 +1,295 @@
+﻿<Page x:Class="odkrywca1.kontynenty.afryka"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:odkrywca1"
+      mc:Ignorable="d" 
+      d:DesignHeight="1305" d:DesignWidth="1845"
+ Title="Azja" Background="#CDE8E5">
+    <Page.Resources>
+
+        <!-- Ogólne tło aplikacji -->
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="#CDE8E5"/>
+            <!-- Jasny turkusowy -->
+        </Style>
+
+        <!-- Styl dla sekcji/kart -->
+        <Style TargetType="Border">
+            <Setter Property="Background" Value="#EEF7FF"/>
+            <!-- Jasny błękit -->
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Opacity="0.2" BlurRadius="15"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Styl dla nagłówków -->
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Styl dla głównego tekstu -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Justify"/>
+            <Setter Property="Foreground" Value="#3a5f6e"/>
+            <!-- Chłodny szary-niebieski -->
+        </Style>
+
+        <!-- Styl dla RadioButton -->
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="32" Height="32" Margin="5"
+                                BorderBrush="Black" BorderThickness="2"
+                                CornerRadius="16" Background="White">
+                                <Grid>
+                                    <Ellipse Name="Bullet" Fill="Transparent"/>
+                                </Grid>
+                            </Border>
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Bullet" Property="Fill" Value="#7AB2B2"/>
+                                <!-- Średni turkusowy -->
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bullet" Property="Fill" Value="#6fc3e3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Styl dla przycisków (główne akcje) -->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Background" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Opacity="0.3" BlurRadius="10"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="15" Padding="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#6fc3e3"/>
+                                <!-- Żółty hover -->
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#154360"/>
+                                <!-- Ciemniejszy niebieski dla kliknięcia -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Styl dla alertów i pilnych elementów -->
+        <Style x:Key="AlertStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E74C3C"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <!-- Styl dla Scrollbara -->
+        <Style TargetType="ScrollBar">
+            <!-- Tło całego scrollbar -->
+            <Setter Property="Background" Value="#EEF7FF"/>
+            <!-- Jasny błękit -->
+
+            <!-- Styl dla uchwytu (thumb) -->
+            <Setter Property="Thumb.Background" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Thumb.BorderBrush" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+            <Setter Property="Thumb.BorderThickness" Value="2"/>
+
+
+            <!-- Styl dla uchwytu podczas najechania -->
+            <Setter Property="Thumb.Background" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+            <Setter Property="Thumb.BorderBrush" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Thumb.BorderThickness" Value="2"/>
+
+
+            <!-- Styl dla przycisków przesuwania scrollbara -->
+            <Setter Property="Button.Background" Value="#CDE8E5"/>
+            <!-- Jasny turkusowy -->
+            <Setter Property="Button.BorderBrush" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Button.BorderThickness" Value="1"/>
+
+            <Setter Property="Button.Foreground" Value="#4D869C"/>
+            <!-- Chłodny szary-niebieski -->
+
+            <Setter Property="Button.Background" Value="#7AB2B2"/>
+            <!-- Średni turkusowy -->
+            <Setter Property="Button.BorderBrush" Value="#CDE8E5"/>
+            <!-- Jasny turkusowy -->
+            <Setter Property="Button.BorderThickness" Value="1"/>
+
+            <Setter Property="Button.Foreground" Value="#FFFFFF"/>
+            <!-- Biały tekst -->
+        </Style>
+
+    </Page.Resources>
+
+
+
+    <Grid Margin="0,0,10,0">
+        <MediaElement x:Name="clickSound" Visibility="Collapsed" LoadedBehavior="Manual" UnloadedBehavior="Manual" />
+        <Grid x:Name="kontynent" Visibility="Visible">
+            <Label Content="AFRYKA" FontSize="120" FontFamily="Calibri" Margin="0,34,0,0" VerticalAlignment="Top" Height="184" Width="460" HorizontalContentAlignment="Center"/>
+
+            <ScrollViewer Height="924" Visibility="Visible" BorderBrush="SpringGreen" BorderThickness="5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="-11,223,-11,55">
+                <Grid>
+                    <StackPanel Margin="0,0,0,74">
+                        <TextBlock TextWrapping="Wrap" FontSize="40" Padding="10" Height="3015" TextAlignment="Center" Width="2132">
+                <Run FontSize="36" FontWeight="Bold" Text="Afryka – Kontynent Pełen Kontrastów"/><LineBreak/><LineBreak/>
+                <Run Text="Afryka to drugi co do wielkości kontynent na Ziemi, zajmujący około 30,3 miliona km². Zamieszkuje go ponad 1,4 miliarda ludzi."/><LineBreak/><LineBreak/>
+                <Run FontSize="34" FontWeight="Bold" Text="Najważniejsze informacje:"/><LineBreak/><LineBreak/>
+                <Run Text="🌍 "/><Run FontWeight="Bold" Text="Drugi największy kontynent"/><Run Text=" – zarówno pod względem powierzchni, jak i populacji."/><LineBreak/>
+                <Run Text="🏜 "/><Run FontWeight="Bold" Text="Największa pustynia świata"/><Run Text=" – Sahara, zajmująca ok. 9,2 mln km²."/><LineBreak/>
+                <Run Text="🌊 "/><Run FontWeight="Bold" Text="Najdłuższa rzeka"/><Run Text=" – Nil, o długości ok. 6650 km."/><LineBreak/>
+                <Run Text="⛰ "/><Run FontWeight="Bold" Text="Najwyższy szczyt"/><Run Text=" – Kilimandżaro (5895 m n.p.m.), w Tanzanii."/><LineBreak/>
+                <Run Text="🦁 "/><Run FontWeight="Bold" Text="Unikalna fauna"/><Run Text=" – Afryka to dom dla Wielkiej Piątki: lwa, słonia, bawołu, lamparta i nosorożca."/><LineBreak/>
+                <Run Text="🌄 "/><Run FontWeight="Bold" Text="Największe jezioro"/><Run Text=" – Jezioro Wiktorii, jedno z największych jezior słodkowodnych."/><LineBreak/><LineBreak/>
+
+                <Run FontSize="34" FontWeight="Bold" Text="Ciekawostki o Afryce:"/><LineBreak/><LineBreak/>
+                <Run Text="🔹 Sahara powiększa się o ok. 48 km rocznie z powodu pustynnienia."/><LineBreak/>
+                <Run Text="🔹 W Afryce znajduje się "/><Run FontWeight="Bold" Text="najstarsza pustynia świata"/><Run Text=" – Namib, istniejąca od ponad 55 milionów lat."/><LineBreak/>
+                <Run Text="🔹 Egipt jest domem dla "/><Run FontWeight="Bold" Text="Wielkiej Piramidy w Gizie"/><Run Text=" – jedynego z siedmiu cudów starożytnego świata, który przetrwał do dziś."/><LineBreak/>
+                <Run Text="🔹 Madagaskar jest znany z unikalnej fauny – 90% jego gatunków nie występuje nigdzie indziej."/><LineBreak/>
+                <Run Text="🔹 Lagos, największe miasto Nigerii, jest jednym z najszybciej rozwijających się miast na świecie."/><LineBreak/><LineBreak/>
+
+                <Run Text="Afryka to kontynent niesamowitych krajobrazów, różnorodnych kultur i fascynującej historii. Od sawann Serengeti po nowoczesne miasta, Afryka łączy tradycję z nowoczesnością. 🌿🌍"/>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <Image  Width="400px" Height="400" Source="/kontynenty/africa1.jpg" Margin="599,2115,423,477" Stretch="Uniform"/>
+                    <Image  Width="400px" Height="300" Source="/kontynenty/africa2.jpg" Margin="518,2112,994,521" Stretch="Uniform"/>
+                    <Image Width="400px" Height="300" Source="/kontynenty/africa3.jpg" Margin="460,2370,1001,316" Stretch="Uniform"/>
+                    <Image Width="600px" Source="/kontynenty/africa4.jpg" Margin="866,2471,435,215" RenderTransformOrigin="0.5,0.5" Stretch="Uniform">
+
+
+
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.76"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Grid>
+            </ScrollViewer>
+
+        </Grid>
+        <Grid Visibility="Visible" x:Name="powrot_grid">
+            <Button Content="POWRÓT" FontSize="40" HorizontalAlignment="Left" Margin="68,61,0,0" VerticalAlignment="Top" Height="80" Width="205" Click="powrot"/>
+            <Button Content="Quiz" FontSize="40" HorizontalAlignment="Left" Margin="1823,44,0,0" VerticalAlignment="Top" Height="80" Width="205" Click="quiz_click"/>
+
+        </Grid>
+        <Grid x:Name="quiz" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Height="1291" Width="1815">
+            <ScrollViewer Visibility="Visible" BorderBrush="SpringGreen" BorderThickness="5" Height="924" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="55,270,55,97">
+                <StackPanel Height="2021" Width="1648">
+
+                    <GroupBox Header="Pytanie 1: Jaka jest najwyższa góra Afryki?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt1">
+                            <RadioButton Content="Kilimandżaro" GroupName="question1" Margin="10" Tag="3"/>
+                            <RadioButton Content="Kenia" GroupName="question1" Margin="10" Tag="2"/>
+                            <RadioButton Content="Ruwenzori" GroupName="question1" Margin="10" Tag="1"/>
+                            <RadioButton Content="Atlas" GroupName="question1" Margin="10" Tag="4"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Pytanie 2: Jakie jest największe jezioro Afryki?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt2">
+                            <RadioButton Content="Jezioro Wiktorii" GroupName="question2" Margin="10" Tag="2"/>
+                            <RadioButton Content="Jezioro Tanganika" GroupName="question2" Margin="10" Tag="4"/>
+                            <RadioButton Content="Jezioro Czad" GroupName="question2" Margin="10" Tag="1"/>
+                            <RadioButton Content="Jezioro Malawi" GroupName="question2" Margin="10" Tag="3"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Pytanie 3: Która pustynia jest największa w Afryce?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt3">
+                            <RadioButton Content="Kalahari" GroupName="question3" Margin="10" Tag="3"/>
+                            <RadioButton Content="Sahara" GroupName="question3" Margin="10" Tag="1"/>
+                            <RadioButton Content="Namib" GroupName="question3" Margin="10" Tag="2"/>
+                            <RadioButton Content="Gobi" GroupName="question3" Margin="10" Tag="4"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Pytanie 4: Jaka rzeka jest najdłuższa w Afryce?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt4">
+                            <RadioButton Content="Niger" GroupName="question4" Margin="10" Tag="3"/>
+                            <RadioButton Content="Nil" GroupName="question4" Margin="10" Tag="2"/>
+                            <RadioButton Content="Kongo" GroupName="question4" Margin="10" Tag="1"/>
+                            <RadioButton Content="Zambezi" GroupName="question4" Margin="10" Tag="4"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Pytanie 5: Które miasto jest największe w Afryce pod względem ludności?" FontWeight="Bold" FontSize="50" BorderBrush="Aqua" BorderThickness="5">
+                        <StackPanel RenderTransformOrigin="0.5,0.5" Name="pyt5">
+                            <RadioButton Content="Lagos" GroupName="question5" Margin="10" Tag="2"/>
+                            <RadioButton Content="Kair" GroupName="question5" Margin="10" Tag="1"/>
+                            <RadioButton Content="Johannesburg" GroupName="question5" Margin="10" Tag="3"/>
+                            <RadioButton Content="Casablanca" GroupName="question5" Margin="10" Tag="4"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <Label x:Name="wynik" FontSize="40" Height="82" Width="245" Margin="40" Content="wynik:" HorizontalAlignment="Center"/>
+                    <Button x:Name="sprawdzz" Content="SPRAWDŹ" FontSize="50" HorizontalAlignment="Center" Height="131" Width="253" Click="sprawdz"/>
+                    <Button x:Name="resett" Visibility="Collapsed" Content="RESET" FontSize="50" HorizontalAlignment="Center" Height="95" Width="308" Click="reset"/>
+
+                </StackPanel>
+            </ScrollViewer>
+            <Button Content="POWRÓT" FontSize="50" HorizontalAlignment="Left" Margin="55,56,0,0" VerticalAlignment="Top" Height="131" Width="253" Click="powrot_kontynent"/>
+            <Label Content="QUIZ" HorizontalAlignment="Left" FontSize="200" Margin="587,22,0,0" VerticalAlignment="Top" Height="248" Width="737"/>
+        </Grid>
+
+
+    </Grid>
+
+</Page>
