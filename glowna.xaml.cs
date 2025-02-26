@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -43,7 +44,7 @@ namespace odkrywca1
 
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri("pack://application:,,,\\zdjecia\\old-radio-button-click-97549.mp3"));
             player.Play();
             NavigationService.Navigate(new azja());
 
@@ -55,17 +56,17 @@ namespace odkrywca1
         {
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            MessageBox.Show("afryka");
+            NavigationService.Navigate(new kontynenty.afryka());
         }
 
         private void australia_click(object sender, RoutedEventArgs e)
         {
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
 
@@ -76,18 +77,17 @@ namespace odkrywca1
         {
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
-           
 
-            MessageBox.Show("europa");
+            NavigationService.Navigate(new kontynenty.europa());
         }
 
         private void bliskiws_click(object sender, RoutedEventArgs e)
         {
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
             MessageBox.Show("bliski wschod");
@@ -97,7 +97,7 @@ namespace odkrywca1
         {
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
             MessageBox.Show("ameryka poln ocna");
@@ -106,7 +106,7 @@ namespace odkrywca1
         {
             player.Stop();
             player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\kubat\source\repos\tatara-kj\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
+            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
             MessageBox.Show("amryka poludniowa");
