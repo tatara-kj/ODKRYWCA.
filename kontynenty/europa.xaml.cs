@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,127 +62,159 @@ namespace odkrywca1.kontynenty
             quiz.Visibility = Visibility.Visible;
         }
 
-        private StackPanel[] pytania; // Deklaracja tablicy StackPanel
+        private StackPanel[] pytania;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Inicjalizacja tablicy pytania
+
             pytania = new StackPanel[] { pyt1, pyt2, pyt3, pyt4, pyt5 };
         }
+
+        int pnkt = 0;
         private void sprawdz(object sender, RoutedEventArgs e)
         {
 
-            Button button = sender as Button;
-            if (button != null)
+            if (dobra1.IsChecked == true)
             {
-                button.IsEnabled = false;
+                pnkt++;
+                label1.Content = "Dobrze";
+                label1.Foreground = Brushes.Green;
+            }
+            else
+            {
+                label1.Content = "zle, dobra odpowiedz Mont blanc";
+                label1.Foreground = Brushes.Red;
             }
 
-            player.Stop();
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
-            player.Volume = 0.5 * 1.2;
-            int licznik = 0;
-            string[] poprawneOdpowiedzi = { "1", "2", "1", "1", "1" };
-            StackPanel[] pytania = { pyt1, pyt2, pyt3, pyt4, pyt5 };
-            int liczba_pytan = pytania.Length;
-
-            for (int i = 0; i < liczba_pytan; i++) // przehcodzi po pytaniach
+            if (dobra2.IsChecked == true)
             {
-                bool odpowiedzZaznaczona = false;
-                for (int j = 0; j < 4; j++) //przechdozi po odpoiwedziach
-                {
-                    if (pytania[i].Children[j] is RadioButton rb)//sprawdza czy to radiobut i przypisuje do rb zmiennej
-                    {
-                        if (rb.IsChecked == true)
-                        {
-                            odpowiedzZaznaczona = true;
-                            if (rb.Tag != null && rb.Tag.ToString() == poprawneOdpowiedzi[i]) // sprawdza czy zanaaczone to poprawna odpowiedz
-                            {
-                                licznik++;
-                                TextBlock dobrzeText = new TextBlock();
-                                dobrzeText.Text = "DOBRZE!";
-                                dobrzeText.Foreground = Brushes.Green;
-                                dobrzeText.FontSize = 30;
-                                dobrzeText.Margin = new Thickness(10, 0, 0, 0);
-                                pytania[i].Children.Add(dobrzeText);
-                            }
-                            else
-                            {
-                                rb.Foreground = Brushes.Red;
-                                for (int k = 0; k < pytania[i].Children.Count; k++)
-                                {
-                                    if (pytania[i].Children[k] is RadioButton correctRb && correctRb.Tag != null && correctRb.Tag.ToString() == poprawneOdpowiedzi[i])
-                                    {
-                                        correctRb.Foreground = Brushes.Green;
-                                    }//szuka poprawenje i zmienia jej kolor na zkeoljnu
-                                }
-                            }
-                        }
-                    }
-                }
-                if (!odpowiedzZaznaczona)
-                {
-                    TextBlock zle = new TextBlock();
-                    zle.Text = "nic nie zaznaczyles!";
-                    zle.Foreground = Brushes.Red;
-                    zle.FontSize = 30;
-                    zle.Margin = new Thickness(10, 0, 0, 0);
-                    pytania[i].Children.Add(zle);
-                }
-
-
-
+                pnkt++;
+                label2.Content = "Dobrze";
+                label2.Foreground = Brushes.Green;
             }
-            wynik.Content = "Wynik: " + (double)licznik / liczba_pytan * 100 + "%";
+            else
+            {
+                label2.Content = "zle, dobra odpowiedz Jezioro Ładoga";
+                label2.Foreground = Brushes.Red;
+            }
+
+
+
+            if (dobra3.IsChecked == true)
+            {
+                pnkt++;
+                label3.Content = "Dobrze";
+                label3.Foreground = Brushes.Green;
+            }
+            else
+            {
+                label3.Content = "zle, dobra odpowiedz Dunaj";
+                label3.Foreground = Brushes.Red;
+            }
+
+
+
+            if (dobra4.IsChecked == true)
+            {
+                pnkt++;
+                label4.Content = "Dobrze";
+                label4.Foreground = Brushes.Green;
+            }
+            else
+            {
+                label4.Content = "zle, dobra odpowiedz Rosja";
+                label4.Foreground = Brushes.Red;
+            }
+
+
+
+            if (dobra5.IsChecked == true)
+            {
+                pnkt++;
+                label5.Content = "Dobrze";
+                label5.Foreground = Brushes.Green;
+            }
+            else
+            {
+                label5.Content = "zle, dobra odpowiedz Berlin";
+                label5.Foreground = Brushes.Red;
+            }
+
+            wynik.Content = "wynik: " + (double)pnkt / 5 * 100 + "%";
+
             sprawdzz.Visibility = Visibility.Collapsed;
             resett.Visibility = Visibility.Visible;
         }
 
         private void reset(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
-            player.Volume = 0.5 * 1.2;
-            if (pytania == null)
-            {
-                string[] poprawneOdpowiedzi = { "1", "1", "4", "3", "3" };
-            }
 
-            // Resetowanie kolorów RadioButtonów
-            for (int i = 0; i < pytania.Length; i++)
-            {
-                for (int j = 0; j < pytania[i].Children.Count; j++)
-                {
-                    if (pytania[i].Children[j] is RadioButton rb)
-                    {
-                        rb.Foreground = Brushes.Black;
-                    }
-                }
-            }
+            pnkt = 0;
 
-            // Usuwanie tekstów "DOBRZE!" oraz "nic nie zaznaczyłeś!"
-            for (int i = 0; i < pytania.Length; i++)
-            {
-                for (int j = pytania[i].Children.Count - 1; j >= 0; j--)
-                {
-                    if (pytania[i].Children[j] is TextBlock textBlock)
-                    {
-                        if (textBlock.Text == "DOBRZE!" || textBlock.Text == "nic nie zaznaczyles!")
-                        {
-                            pytania[i].Children.RemoveAt(j);  // Usuwamy odpowiedni tekst
-                        }
-                    }
-                }
-            }
-
-            // Resetowanie przycisku sprawdzania i widoczności
-            sprawdzz.IsEnabled = true;
             wynik.Content = "";
-            sprawdzz.Visibility = Visibility.Visible;
+
+            label1.Content = "";
+            label2.Content = "";
+            label3.Content = "";
+            label4.Content = "";
+            label5.Content = "";
+
+
+
+
+
             resett.Visibility = Visibility.Collapsed;
+            sprawdzz.Visibility = Visibility.Visible;
+
         }
+
+
+
+        int miejsce = 0;
+
+        private void next(object sender, RoutedEventArgs e)
+        {
+            miejsce++;
+
+            if (miejsce == 0)
+            {
+                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe1.jpg"));
+            }
+            else if (miejsce == 1)
+            {
+                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe2.jpg"));
+            }
+            else if (miejsce == 2)
+            {
+                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe3.jpg"));
+            }
+
+            if (miejsce > 2)
+                miejsce = 0;
+        }
+
+        private void prev(object sender, RoutedEventArgs e)
+        {
+            miejsce--;
+
+            if (miejsce == 0)
+            {
+                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe3.jpg"));
+            }
+            else if (miejsce == 1)
+            {
+                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe2.jpg"));
+            }
+            else if (miejsce == 2)
+            {
+                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe1.jpg"));
+            }
+
+            if (miejsce < 0)
+                miejsce = 2;
+        }
+
+
 
     }
 }
