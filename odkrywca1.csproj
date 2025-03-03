@@ -19,6 +19,10 @@
     <None Remove="kontynenty\africa2.jpg" />
     <None Remove="kontynenty\africa3.jpg" />
     <None Remove="kontynenty\africa4.jpg" />
+    <None Remove="kontynenty\amerykan1.jpg" />
+    <None Remove="kontynenty\amerykan2.jpg" />
+    <None Remove="kontynenty\amerykan3.jpg" />
+    <None Remove="kontynenty\amerykan4.jpg" />
     <None Remove="kontynenty\asia2.jpg" />
     <None Remove="kontynenty\europe1.jpg" />
     <None Remove="kontynenty\europe2.jpg" />
@@ -27,6 +31,10 @@
     <None Remove="kontynenty\zdjecia\africa2.jpg" />
     <None Remove="kontynenty\zdjecia\africa3.jpg" />
     <None Remove="kontynenty\zdjecia\africa4.jpg" />
+    <None Remove="kontynenty\zdjecia\amerykan1.jpg" />
+    <None Remove="kontynenty\zdjecia\amerykan2.jpg" />
+    <None Remove="kontynenty\zdjecia\amerykan3.jpg" />
+    <None Remove="kontynenty\zdjecia\amerykan4.jpg" />
     <None Remove="kontynenty\zdjecia\europa.jpg" />
   </ItemGroup>
 
@@ -41,6 +49,10 @@
     <Resource Include="kontynenty\africa2.jpg" />
     <Resource Include="kontynenty\africa3.jpg" />
     <Resource Include="kontynenty\africa4.jpg" />
+    <Resource Include="kontynenty\amerykan1.jpg" />
+    <Resource Include="kontynenty\amerykan2.jpg" />
+    <Resource Include="kontynenty\amerykan3.jpg" />
+    <Resource Include="kontynenty\amerykan4.jpg" />
     <Resource Include="kontynenty\asia2.jpg" />
     <Resource Include="kontynenty\europe1.jpg" />
     <Resource Include="kontynenty\europe2.jpg" />
@@ -49,6 +61,10 @@
     <Resource Include="kontynenty\zdjecia\africa2.jpg" />
     <Resource Include="kontynenty\zdjecia\africa3.jpg" />
     <Resource Include="kontynenty\zdjecia\africa4.jpg" />
+    <Resource Include="kontynenty\zdjecia\amerykan1.jpg" />
+    <Resource Include="kontynenty\zdjecia\amerykan2.jpg" />
+    <Resource Include="kontynenty\zdjecia\amerykan3.jpg" />
+    <Resource Include="kontynenty\zdjecia\amerykan4.jpg" />
     <Resource Include="kontynenty\zdjecia\europa.jpg" />
   </ItemGroup>
 

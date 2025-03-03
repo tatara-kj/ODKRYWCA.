@@ -39,6 +39,7 @@ namespace odkrywca1
             // Możesz także ustawić dźwięk do odtwarzania w tle
         }
         private MediaPlayer player = new MediaPlayer();
+
         private void asia_click(object sender, RoutedEventArgs e)
         {
 
@@ -70,7 +71,7 @@ namespace odkrywca1
             player.Play();
             clickSound.Play();
 
-            MessageBox.Show("australia");
+            NavigationService.Navigate(new kontynenty.australia());
         }
 
         private void europa_click(object sender, RoutedEventArgs e)
@@ -90,7 +91,7 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            MessageBox.Show("bliski wschod");
+            NavigationService.Navigate(new kontynenty.australia());
         }
 
         private void amerykas_click(object sender, RoutedEventArgs e)
@@ -100,7 +101,7 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            MessageBox.Show("ameryka poln ocna");
+            NavigationService.Navigate(new kontynenty.amerykan());
         }
         private void amerykan_click(object sender, RoutedEventArgs e)
         {
@@ -109,7 +110,7 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            MessageBox.Show("amryka poludniowa");
+            NavigationService.Navigate(new kontynenty.amerykan());
         }
 
 

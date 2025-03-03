@@ -6,6 +6,8 @@
       xmlns:local="clr-namespace:odkrywca1"
       mc:Ignorable="d"
       Title="glowna" Background="AliceBlue" Height="1616" Width="2182">
+ 
+
     <Page.Resources>
 
         <!-- Ogólne tło aplikacji -->

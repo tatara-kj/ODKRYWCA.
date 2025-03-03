@@ -7,8 +7,11 @@
         mc:Ignorable="d"
            WindowState="Maximized"
         Title="Odkrywca" Height="1305" Width="1845" Background="#AED6F1">
+    
     <Window.Resources>
-
+        
+           
+        
         <!-- Ogólne tło aplikacji -->
         <Style TargetType="Page">
             <Setter Property="Background" Value="#AED6F1"/>
