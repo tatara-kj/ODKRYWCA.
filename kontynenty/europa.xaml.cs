@@ -9,10 +9,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.IO;
 namespace odkrywca1.kontynenty
 {
     /// <summary>
@@ -31,19 +32,26 @@ namespace odkrywca1.kontynenty
         private MediaPlayer player = new MediaPlayer();
         private void powrot(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
-            player.Stop();
-            player.Volume = 0.5 * 1.2;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
+            OdtworzDzwiek();
+
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new glowna());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
         }
 
         private void powrot_kontynent(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 1.2;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
+            OdtworzDzwiek();
+
             kontynent.Visibility = Visibility.Visible;
             powrot_grid.Visibility = Visibility.Visible;
 
@@ -52,10 +60,8 @@ namespace odkrywca1.kontynenty
 
         private void quiz_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 1.2;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
+            OdtworzDzwiek();
+
             powrot_grid.Visibility = Visibility.Collapsed;
             kontynent.Visibility = Visibility.Collapsed;
 
@@ -63,12 +69,23 @@ namespace odkrywca1.kontynenty
         }
 
         private StackPanel[] pytania;
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void OdtworzDzwiek()
         {
+            string sciezka = AppDomain.CurrentDomain.BaseDirectory + "kontynenty/zdjecia/mixkit-modern-click-box-check-1120.wav";
 
-            pytania = new StackPanel[] { pyt1, pyt2, pyt3, pyt4, pyt5 };
+            if (File.Exists(sciezka))
+            {
+                player.Stop();
+                player.Volume = 0.5 * 1.2;
+                player.Open(new Uri(sciezka, UriKind.Absolute));
+                player.Play();
+            }
+            else
+            {
+                MessageBox.Show("Plik dźwiękowy nie istnieje!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
 
         int pnkt = 0;
         private void sprawdz(object sender, RoutedEventArgs e)
@@ -144,6 +161,8 @@ namespace odkrywca1.kontynenty
 
             sprawdzz.Visibility = Visibility.Collapsed;
             resett.Visibility = Visibility.Visible;
+
+            ZapiszWynikDoPliku();
         }
 
         private void reset(object sender, RoutedEventArgs e)
@@ -168,9 +187,25 @@ namespace odkrywca1.kontynenty
 
         }
 
+       
 
+private void ZapiszWynikDoPliku()
+    {
+        string sciezka = "C:\\Users\\kubat\\source\\repos\\tatara-kj\\ODKRYWCA\\kontynenty\\zdjecia\\wynik.txt"; 
+        string wynikTekst = $"Twój wynik: {(double)pnkt / 5 * 100}% - Europa";
 
-        int miejsce = 0;
+        try
+        {
+            File.WriteAllText(sciezka, wynikTekst);
+            MessageBox.Show("Wynik zapisany!", "szacun", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Błąd zapisu: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    int miejsce = 0;
 
         private void next(object sender, RoutedEventArgs e)
         {

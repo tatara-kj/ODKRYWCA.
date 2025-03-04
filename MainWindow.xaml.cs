@@ -9,8 +9,9 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Media;
-using System.Numerics;
+
+using System.IO;
+
 namespace odkrywca1
 {
     /// <summary>
@@ -18,27 +19,22 @@ namespace odkrywca1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private SoundPlayer clickSound;
         public MainWindow()
         {
             InitializeComponent();
             GlownaStrona.Navigate(new glowna());
 
-            InitializeComponent();
+            
+            string sciezka = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "kontynenty","zdjecia", "A New Adventure  D&DTTRPG Adventure Music  1 Hour (1).mp3");
 
-            // Ustaw ścieżkę do pliku audio
-            // Ustaw ścieżkę do pliku audio
-            backgroundMusic.Source = new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\A New Adventure  D&DTTRPG Adventure Music  1 Hour (1).mp3", UriKind.RelativeOrAbsolute);
 
-            // Ustaw początkową głośność i ścisz o 25%
-            backgroundMusic.Volume = 0.5 * 0.5;  // 25% ciszej = 0.375
-
-            // Rozpocznij odtwarzanie
-            backgroundMusic.Play();
+            
+                backgroundMusic.Source = new Uri(sciezka, UriKind.Absolute);
+                backgroundMusic.Volume = 0.25;  // 25% głośności
+                backgroundMusic.LoadedBehavior = MediaState.Manual; // Zapewnia kontrolę nad odtwarzaniem
+                backgroundMusic.Play();
+         
 
         }
-
-        
-
     }
 }

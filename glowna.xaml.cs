@@ -11,10 +11,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace odkrywca1
 {
@@ -47,12 +49,25 @@ namespace odkrywca1
             player.Volume = 0.5 * 0.8;
             player.Open(new Uri("pack://application:,,,\\zdjecia\\old-radio-button-click-97549.mp3"));
             player.Play();
-            NavigationService.Navigate(new azja());
+            
 
+
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new azja());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
 
 
         }
-
+        DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
         private void afryka_click(object sender, RoutedEventArgs e)
         {
             player.Stop();
@@ -60,7 +75,20 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            NavigationService.Navigate(new kontynenty.afryka());
+          
+
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new kontynenty.afryka());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
         }
 
         private void australia_click(object sender, RoutedEventArgs e)
@@ -71,7 +99,21 @@ namespace odkrywca1
             player.Play();
             clickSound.Play();
 
-            NavigationService.Navigate(new kontynenty.australia());
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new kontynenty.australia());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
+
+
+
         }
 
         private void europa_click(object sender, RoutedEventArgs e)
@@ -81,7 +123,20 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
 
-            NavigationService.Navigate(new kontynenty.europa());
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+
+                NavigationService.Navigate(new kontynenty.europa());
+
+
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
+
         }
 
         private void bliskiws_click(object sender, RoutedEventArgs e)
@@ -91,7 +146,22 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            NavigationService.Navigate(new kontynenty.australia());
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new kontynenty.australia());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
+
+
+
+
         }
 
         private void amerykas_click(object sender, RoutedEventArgs e)
@@ -101,7 +171,20 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            NavigationService.Navigate(new kontynenty.amerykan());
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new kontynenty.amerykas());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
+
+
         }
         private void amerykan_click(object sender, RoutedEventArgs e)
         {
@@ -110,8 +193,22 @@ namespace odkrywca1
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
             player.Play();
             clickSound.Play();
-            NavigationService.Navigate(new kontynenty.amerykan());
+
+            
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new kontynenty.amerykas());
+
+                
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+          
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
         }
+
 
 
         private void wejscie(object sender, MouseEventArgs e)

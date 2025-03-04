@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Numerics;
+using System.Windows.Media.Animation;
 
 namespace odkrywca1
 {
@@ -35,11 +36,22 @@ namespace odkrywca1
         private MediaPlayer player = new MediaPlayer();
         private void powrot(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
             player.Stop();
             player.Volume = 0.5 * 1.2;
             player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
             player.Play();
+            DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            animacjaZanikania.Completed += (s, eArgs) =>
+            {
+                NavigationService.Navigate(new glowna());
+
+
+                DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+                ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
+            };
+
+
+            ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
         }
 
         private void powrot_kontynent(object sender, RoutedEventArgs e)
