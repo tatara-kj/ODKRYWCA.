@@ -25,8 +25,7 @@ namespace odkrywca1.kontynenty
         {
             InitializeComponent();
 
-            //testgowno
-            // Możesz także ustawić dźwięk do odtwarzania w tle
+          
 
         }
         private MediaPlayer player = new MediaPlayer();
@@ -69,7 +68,7 @@ namespace odkrywca1.kontynenty
         }
 
         private StackPanel[] pytania;
-        private void OdtworzDzwiek()
+      private void OdtworzDzwiek()
         {
             string sciezka = AppDomain.CurrentDomain.BaseDirectory + "kontynenty/zdjecia/mixkit-modern-click-box-check-1120.wav";
 
@@ -90,7 +89,7 @@ namespace odkrywca1.kontynenty
         int pnkt = 0;
         private void sprawdz(object sender, RoutedEventArgs e)
         {
-
+            OdtworzDzwiek();
             if (dobra1.IsChecked == true)
             {
                 pnkt++;
@@ -167,6 +166,7 @@ namespace odkrywca1.kontynenty
 
         private void reset(object sender, RoutedEventArgs e)
         {
+            OdtworzDzwiek();
 
             pnkt = 0;
 
@@ -209,44 +209,37 @@ private void ZapiszWynikDoPliku()
 
         private void next(object sender, RoutedEventArgs e)
         {
-            miejsce++;
+            OdtworzDzwiek();
+            miejsce = (miejsce + 1) % 4; 
 
-            if (miejsce == 0)
-            {
-                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe1.jpg"));
-            }
-            else if (miejsce == 1)
-            {
-                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe2.jpg"));
-            }
-            else if (miejsce == 2)
-            {
-                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe3.jpg"));
-            }
-
-            if (miejsce > 2)
-                miejsce = 0;
+            ZmienObraz(miejsce); 
         }
 
         private void prev(object sender, RoutedEventArgs e)
         {
-            miejsce--;
+            OdtworzDzwiek();
+            miejsce = (miejsce - 1 + 4) % 4;
 
-            if (miejsce == 0)
-            {
-                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe3.jpg"));
-            }
-            else if (miejsce == 1)
-            {
-                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe2.jpg"));
-            }
-            else if (miejsce == 2)
-            {
-                img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe1.jpg"));
-            }
+            ZmienObraz(miejsce); 
+        }
 
-            if (miejsce < 0)
-                miejsce = 2;
+        private void ZmienObraz(int miejsce)
+        {
+            switch (miejsce)
+            {
+                case 0:
+                    img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe1.jpg"));
+                    break;
+                case 1:
+                    img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe2.jpg"));
+                    break;
+                case 2:
+                    img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europe3.jpg"));
+                    break;
+                case 3:
+                    img_box.Source = new BitmapImage(new Uri("pack://application:,,,/kontynenty/europa4.jpeg"));
+                    break;
+            }
         }
 
 

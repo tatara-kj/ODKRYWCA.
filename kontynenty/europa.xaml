@@ -231,7 +231,7 @@
                         </TextBlock>
                     </StackPanel>
                    
-                    <Image x:Name="img_box" Source="/kontynenty/europe1.jpg" Margin="380,1853,380,191" Width="1000" Height="700"/>
+                    <Image x:Name="img_box" Source="/kontynenty/europa4.jpeg" Margin="380,1853,380,191" Width="1000" Height="700"/>
                     <Button Content="poprzednie" FontSize="40" Click="prev" 
                 Width="300" Height="100"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,50"/>

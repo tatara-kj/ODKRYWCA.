@@ -14,7 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.IO;
 namespace odkrywca1.kontynenty
 {
     /// <summary>
@@ -22,6 +22,7 @@ namespace odkrywca1.kontynenty
     /// </summary>
     public partial class amerykas : Page
     {
+
         public amerykas()
         {
             InitializeComponent();
@@ -29,10 +30,7 @@ namespace odkrywca1.kontynenty
         private MediaPlayer player = new MediaPlayer();
         private void powrot(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 1.2;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
+            OdtworzDzwiek();
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
@@ -49,10 +47,7 @@ namespace odkrywca1.kontynenty
 
         private void powrot_kontynent(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 1.2;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
+            OdtworzDzwiek();
             kontynent.Visibility = Visibility.Visible;
             powrot_grid.Visibility = Visibility.Visible;
 
@@ -61,16 +56,28 @@ namespace odkrywca1.kontynenty
 
         private void quiz_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 1.2;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\mixkit-modern-click-box-check-1120.wav"));
-            player.Play();
+            OdtworzDzwiek();
             powrot_grid.Visibility = Visibility.Collapsed;
             kontynent.Visibility = Visibility.Collapsed;
 
             quiz.Visibility = Visibility.Visible;
         }
+        private void OdtworzDzwiek()
+        {
+            string sciezka = AppDomain.CurrentDomain.BaseDirectory + "kontynenty/zdjecia/mixkit-modern-click-box-check-1120.wav";
 
+            if (File.Exists(sciezka))
+            {
+                player.Stop();
+                player.Volume = 0.5 * 1.2;
+                player.Open(new Uri(sciezka, UriKind.Absolute));
+                player.Play();
+            }
+            else
+            {
+                MessageBox.Show("Plik dźwiękowy nie istnieje!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private StackPanel[] pytania;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -82,7 +89,7 @@ namespace odkrywca1.kontynenty
         int pnkt = 0;
         private void sprawdz(object sender, RoutedEventArgs e)
         {
-
+            OdtworzDzwiek();
             if (dobra1.IsChecked == true)
             {
                 pnkt++;
@@ -157,6 +164,7 @@ namespace odkrywca1.kontynenty
 
         private void reset(object sender, RoutedEventArgs e)
         {
+            OdtworzDzwiek();
 
             pnkt = 0;
             wynik.Content = "";
@@ -182,6 +190,7 @@ namespace odkrywca1.kontynenty
 
         private void next(object sender, RoutedEventArgs e)
         {
+            OdtworzDzwiek();
             miejsce++;
 
             if (miejsce == 0)
@@ -203,6 +212,7 @@ namespace odkrywca1.kontynenty
 
         private void prev(object sender, RoutedEventArgs e)
         {
+            OdtworzDzwiek();
             miejsce--;
 
             if (miejsce == 0)

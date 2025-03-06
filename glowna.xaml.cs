@@ -15,8 +15,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using PathIO = System.IO.Path;  // Alias dla System.IO.Path
+using System.IO;
+using System.Security.Cryptography;
 
 namespace odkrywca1
 {
@@ -25,195 +26,146 @@ namespace odkrywca1
     /// </summary>
     public partial class glowna : Page
     {
-   
         public glowna()
         {
             InitializeComponent();
-            string clickSoundPath = @"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3";
-
-            // Ustaw ścieżkę do dźwięku kliknięcia
-            clickSound.Source = new Uri(clickSoundPath, UriKind.Absolute);
-
-            // Inne ustawienia, jeśli potrzeba
-            clickSound.LoadedBehavior = MediaState.Manual; // Zapewni manualne kontrolowanie
-            clickSound.UnloadedBehavior = MediaState.Manual;
-
-            // Możesz także ustawić dźwięk do odtwarzania w tle
+           
         }
         private MediaPlayer player = new MediaPlayer();
+        private void OdtworzDzwiek()
+        {
+
+            string sciezka = PathIO.Combine(AppDomain.CurrentDomain.BaseDirectory, "kontynenty", "zdjecia", "old-radio-button-click-97549.mp3");
+
+
+            if (File.Exists(sciezka))
+            {
+                player.Stop();
+                player.Volume = 0.5 * 1.2;
+                player.Open(new Uri(sciezka, UriKind.Absolute));
+                player.Play();
+            }
+            else
+            {
+                MessageBox.Show("Plik dźwiękowy nie istnieje!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void asia_click(object sender, RoutedEventArgs e)
         {
-
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri("pack://application:,,,\\zdjecia\\old-radio-button-click-97549.mp3"));
-            player.Play();
-            
-
+            OdtworzDzwiek();
 
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
                 NavigationService.Navigate(new azja());
 
-
                 DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
             };
 
-
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
-
-
         }
+
         DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
         private void afryka_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
-            player.Play();
-            clickSound.Play();
-          
+            OdtworzDzwiek();
 
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
                 NavigationService.Navigate(new kontynenty.afryka());
 
-
                 DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
             };
-
 
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
         }
 
         private void australia_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
-            player.Play();
-            clickSound.Play();
+            OdtworzDzwiek();
 
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
                 NavigationService.Navigate(new kontynenty.australia());
 
-
                 DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
             };
 
-
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
-
-
-
         }
 
         private void europa_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
-            player.Play();
+            OdtworzDzwiek();
 
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
 
             animacjaZanikania.Completed += (s, eArgs) =>
             {
-
                 NavigationService.Navigate(new kontynenty.europa());
-
 
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5)));
             };
 
-
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
-
         }
 
         private void bliskiws_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
-            player.Play();
-            clickSound.Play();
+            OdtworzDzwiek();
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
                 NavigationService.Navigate(new kontynenty.australia());
 
-
                 DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
             };
 
-
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
-
-
-
-
         }
 
         private void amerykas_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
-            player.Play();
-            clickSound.Play();
+            OdtworzDzwiek();
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
                 NavigationService.Navigate(new kontynenty.amerykas());
 
-
                 DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
             };
 
-
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
-
-
         }
+
         private void amerykan_click(object sender, RoutedEventArgs e)
         {
-            player.Stop();
-            player.Volume = 0.5 * 0.8;
-            player.Open(new Uri(@"C:\Users\jtataruch1\Source\Repos\ODKRYWCA\zdjecia\old-radio-button-click-97549.mp3"));
-            player.Play();
-            clickSound.Play();
+            OdtworzDzwiek();
 
-            
             DoubleAnimation animacjaZanikania = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             animacjaZanikania.Completed += (s, eArgs) =>
             {
                 NavigationService.Navigate(new kontynenty.amerykas());
 
-                
                 DoubleAnimation animacjaPowrotu = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
                 ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaPowrotu);
             };
 
-          
             ((MainWindow)Application.Current.MainWindow).BeginAnimation(OpacityProperty, animacjaZanikania);
         }
-
-
 
         private void wejscie(object sender, MouseEventArgs e)
         {
-            Path ksztalt = sender as Path;
+          
+            System.Windows.Shapes.Path ksztalt = sender as System.Windows.Shapes.Path; 
 
             if (ksztalt != null)
             {
@@ -231,7 +183,8 @@ namespace odkrywca1
 
         private void wyjscie(object sender, MouseEventArgs e)
         {
-            Path ksztalt = sender as Path;
+            
+            System.Windows.Shapes.Path ksztalt = sender as System.Windows.Shapes.Path; 
 
             if (ksztalt != null)
             {
@@ -239,6 +192,5 @@ namespace odkrywca1
                 ksztalt.Effect = null;
             }
         }
-
     }
 }
